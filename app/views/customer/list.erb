@@ -1,0 +1,24 @@
+<% @page_title = 'Customer List' %>
+<h2><%= @page_title %></h2>
+<div id="count"><%= pluralize(@customers.size, 'customer') %> found</div> <%= link_to('Add Customer', {:action => 'new'},{:class => 'add-new'}) %><br />
+<table class="list">
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Phone Number</th>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+  <% for customer in @customers -%>
+    <tr>
+      <td><%= link_to(customer.first_name + ' ' +customer.last_name, {:action => 'show', :id => customer.id}) %></td>
+      <td><%= customer.street_address+' '+customer.city+', '+customer.province+', '+customer.country+' '+customer.postal_code %></td>
+      <td><%= customer.phone_number %></td>
+      <td><%= link_to(customer.email, 'mailto:'+customer.email) %></td>
+      <td><%= link_to('Edit', {:action => 'edit', :id => customer.id}) %> | <%= link_to('Delete', {:action => 'delete', :id => customer.id}) %></td>
+    </tr>
+  <% end -%>
+</table>
+
+
+

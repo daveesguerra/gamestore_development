@@ -1,0 +1,12 @@
+<%= error_messages_for(@user) %>
+<table>
+  <tr>
+    <td><span class="title">Name: </span></td><td><%= f.text_field(:name) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Password: </span></td><td><%= f.text_field(:password) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Email: </span></td><td><%= f.text_field(:email) %></td>
+  </tr>
+</table>

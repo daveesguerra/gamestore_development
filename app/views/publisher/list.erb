@@ -1,0 +1,18 @@
+<% @page_title = 'Publisher List' %>
+<h2><%= @page_title %></h2>
+<div id="count"><%= pluralize(@publishers.size, 'publisher') %> found</div> <%= link_to('Add Publisher', {:action => 'new'},{:class => 'add-new'}) %><br />
+<table class="list">
+  <tr>
+    <th>Publisher</th>
+    <th>Actions</th>
+  </tr>
+  <% for publisher in @publishers -%>
+    <tr>
+      <td><%= link_to(publisher.publisher, {:action => 'show', :id => publisher.id}) %></td>
+      <td><%= link_to('Edit', {:action => 'edit', :id => publisher.id}) %> | <%= link_to('Delete', {:action => 'delete', :id => publisher.id}) %></td>
+    </tr>
+  <% end -%>
+</table>
+
+
+

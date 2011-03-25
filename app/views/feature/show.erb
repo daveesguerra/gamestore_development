@@ -1,0 +1,16 @@
+<% @page_title = 'Feature: ' + @feature.feature %>
+<table>
+  <tr>
+    <td><span class="title">Feature: </span></td><td><%= @feature.feature %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Created On:</span></td><td><%= @feature.created_at %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Modified On: </span></td><td><%= @feature.updated_at %></td>
+  </tr>
+</table>
+    <%= link_to('Edit', {:action => 'edit', :id => @feature.id}, {:class => 'back-button'}) %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>
+
+<p><%= @feature.feature %> Games</p>
+<%= #games_list() %>

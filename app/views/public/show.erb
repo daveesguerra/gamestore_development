@@ -1,0 +1,31 @@
+<% @page_title = 'Game: ' + @game.title %>
+<table>
+  <tr>
+    <td><span class="title">Game: </span></td><td><%= h(@game.title) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Image: </span></td><td><img src="<%= h(@game.image_path) %>" alt="<%= h(@game.title) %>" /></td>
+  </tr>
+  <tr>
+    <td><span class="title">Console: </span></td><td><%= h(@game.console.console) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Developer: </span></td><td><%= h(@game.developer.developer) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Publisher: </span></td><td><%= h(@game.publisher.publisher) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Genre: </span></td><td><%= h(@game.genre.genre) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Release Date: </span></td><td><%= h(@game.release_date.strftime("%B %d, %Y")) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Price: </span></td><td><%= number_to_currency(@game.price) %></td>
+  </tr>
+  <tr>
+    <td><%= link_to('Add to Cart', :action => 'add_to_cart', :id => @game.id) %></td>
+  </tr>
+</table>
+    <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>

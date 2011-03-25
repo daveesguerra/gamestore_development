@@ -1,0 +1,6 @@
+<% @page_title = 'Edit Genre' %>
+<h2><%= @page_title %></h2>
+<% form_for(:genre, :url => {:action => 'update', :id => @genre.id}) do |f| %>
+    <%= render (:partial => 'form', :locals => {:f => f}) %>
+    <%= submit_tag("Update Genre") %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>
+<% end %>

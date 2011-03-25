@@ -1,0 +1,15 @@
+        <% if !flash[:notice].blank? %>
+            <div class="notice"><%= flash[:notice] %></div>
+        <% end %>
+<h2>Login</h2>
+<% form_for(:user, :url => {:action => 'send_login'}) do |f| %>
+<table>
+  <tr>
+    <td><span class="title">Name: </span></td><td><%= f.text_field('name') %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Password: </span></td><td><%= f.password_field('password') %></td>
+  </tr>
+</table>
+<%= submit_tag('Log in') %>
+<% end  %>

@@ -1,0 +1,20 @@
+<% @page_title = 'Console: ' + @console.console %>
+<table>
+  <tr>
+    <td><span class="title">Console: </span></td><td><%= @console.console %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Image: </span></td><td><img src="<%= @console.image_path %>" alt="<%= @console.console %>" /><br />(<%= @console.image_path %>)</td>
+  </tr>
+  <tr>
+    <td><span class="title">Created On:</span></td><td><%= @console.created_at %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Modified On: </span></td><td><%= @console.updated_at %></td>
+  </tr>
+</table>
+    <%= link_to('Edit', {:action => 'edit', :id => @console.id}, {:class => 'back-button'}) %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>
+
+
+<p>Games for <%= @console.console %></p>
+<%= games_list() %>

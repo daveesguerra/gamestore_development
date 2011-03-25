@@ -1,0 +1,33 @@
+body {
+    color: #000;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+table.list {
+    width: 100%;
+    border: 1px solid #666;
+}
+
+table.list th {
+    color: #fff;
+    background-color:#333333;
+}
+
+table.list tr:nth-child(even) {
+    background-color: #ccc;
+}
+table.list tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+table.list tr:hover {
+    background-color:#9999ff;
+}
+
+.title {
+    font-weight:bold;
+}
+
+.dev-pub {
+    font-size: 0.8em;
+}

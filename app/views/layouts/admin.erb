@@ -1,0 +1,40 @@
+<html>
+    <head>
+
+      <title>Dave's Game Store | Admin <% if @page_title %>| <%=  @page_title %><% end %></title>
+      <%= stylesheet_link_tag('public','admin', :media => 'all') %>
+      <%= javascript_include_tag('jquery-1.5.1.js') %>
+    </head>
+    <body>
+        <div id="site">
+        <div id="header">
+          <h1>Dave's Game Store Admin</h1>
+          <div style="float: right">
+            <%= link_to('Logout', {:controller => 'admin', :action => 'logout'}) %>
+          </div>
+          <div id="menu">
+            <ul>
+              <li><%= link_to('Users', {:controller =>'user', :action => 'list'}, {:class => 'menu'}) %></li>
+              <li><%= link_to('Games', {:controller => 'game', :action => 'list'}, {:class => 'menu'}) %></li>
+              <li><%= link_to('Consoles', {:controller => 'console', :action => 'list'}, {:class => 'menu'}) %></li>
+              <li><%= link_to('Genres', {:controller => 'genre', :action => 'list'}, {:class => 'menu'}) %></li>
+              <li><%= link_to('Features', {:controller => 'feature', :action => 'list'}, {:class => 'menu'}) %></li>
+              <li><%= link_to('Developers', {:controller => 'developer', :action => 'list'}, {:class => 'menu'}) %></li>
+              <li><%= link_to('Publishers', {:controller => 'publisher', :action => 'list'}, {:class => 'menu'}) %></li>
+              <li><%= link_to('Customers', {:controller =>'customer', :action => 'list'}, {:class => 'menu'}) %></li>
+              <li><%= link_to('Orders', {:controller => 'order', :action => 'list'}, {:class => 'menu'}) %></li>
+            </ul>
+          </div>
+        </div>
+        <% if !flash[:notice].blank? %>
+            <div class="notice"><%= flash[:notice] %></div>
+        <% end %>
+        <div id="content">
+        <%= yield %>
+        </div>
+        <div id="footer">
+          Dave's Game Store | 2011
+        </div>
+        </div>            
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<% @page_title = 'Feature List' %>
+<h2><%= @page_title %></h2>
+<div id="count"><%= pluralize(@features.size, 'feature') %> found</div> <%= link_to('Add Feature', {:action => 'new'},{:class => 'add-new'}) %><br />
+<table class="list">
+  <tr>
+    <th>Features</th>
+    <th>Actions</th>
+  </tr>
+  <% for feature in @features -%>
+    <tr>
+      <td><%= link_to(feature.feature, {:action => 'show', :id => feature.id}) %></td>
+      <td><%= link_to('Edit', {:action => 'edit', :id => feature.id}) %> | <%= link_to('Delete', {:action => 'delete', :id => feature.id}) %></td>
+    </tr>
+  <% end -%>
+</table>
+
+
+

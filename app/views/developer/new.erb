@@ -1,0 +1,7 @@
+<% @page_title = 'Add Developer' %>
+<h2><%= @page_title %></h2>
+<% form_for(:developer, :url => {:action => 'create'}) do |f| %>
+    <%= render (:partial => 'form', :locals => {:f => f}) %>
+    <%= submit_tag("Add Developer") %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>
+
+<% end %>

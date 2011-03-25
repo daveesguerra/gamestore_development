@@ -1,0 +1,11 @@
+<% @page_title = 'Delete Developer' %>
+<h2><%= @page_title %></h2>
+<% form_for(:developer, :url => {:action => 'destroy', :id => @developer.id}) do |f| %>
+    <p>Are you sure you want to permanently delete the <%= @developer.developer %> developer?</p>
+    <table>
+        <tr><td><span class="title">Developer: </span></td><td><%= @developer.developer %></td></tr>
+        <tr><td><span class="title">Image: </span></td><td><%= @developer.image_path %></td></tr>
+    </table>
+    <%= submit_tag("Delete Developer") %> | <%= link_to('Back', {:action => 'list'}) %>
+
+<% end %>

@@ -1,0 +1,6 @@
+<% @page_title = 'Edit Console' %>
+<h2>Edit Console</h2>
+<% form_for(:console, :url => {:action => 'update', :id => @console.id}) do |f| %>
+    <%= render (:partial => 'form', :locals => {:f => f}) %>
+    <%= submit_tag("Update Console") %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>
+<% end %>

@@ -1,0 +1,35 @@
+<% @page_title = 'Game List' %>
+<h2><%= @page_title %></h2>
+<div id="count"><%= pluralize(@games.size, 'game') %> found</div> <%= link_to('Add Game', {:action => 'new'},{:class => 'add-new'}) %><br />
+<table class="list">
+  <tr>
+    <th><!-- image --></th>
+    <th>Game</th>
+    <th>Console</th>
+    <th>Genre</th>
+    <th>Features</th>
+    <th>Release Date</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </tr>
+  <% for game in @games -%>
+    <tr>
+      <td><img src="<%= game.image_path %>" alt="<%= game.title %>" /></td>
+      <td><%= link_to(game.title, {:action => 'show', :id => game.id}) %><br />
+        <span class="dev-pub"><strong>Developer:</strong> <%= game.developer.developer if game.developer %> <strong>Publisher:</strong> <%= game.publisher.publisher if game.publisher %></span>
+      </td>
+      <td><%= game.console.console if game.console %></td>
+      <td><%= game.genre.genre if game.genre %></td>
+      <td><% for feature in game.features -%>
+            <%= feature.feature %><br />
+            <% end %>
+            </td>
+      <td><%= game.release_date %></td>
+      <td><%= number_to_currency(game.price) %></td>
+      <td><%= link_to('Edit', {:action => 'edit', :id => game.id}) %> | <%= link_to('Delete', {:action => 'delete', :id => game.id}) %></td>
+    </tr>
+  <% end -%>
+</table>
+
+
+

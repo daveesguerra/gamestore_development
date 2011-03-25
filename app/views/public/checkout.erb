@@ -1,0 +1,47 @@
+<% @page_title = 'Checkout' %>
+<h2><%= @page_title %></h2>
+<table class="list">
+    <tr>
+      <th>Game</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+<% for item in @cart.items -%>
+    <tr>
+      <td><%= h(item.game.title) %></td>
+      <td><%= h(item.quantity) %></td>
+      <td><%= number_to_currency(item.price) %></td>
+    </tr>
+<% end -%>
+    <tr>
+      <td>Total: </td>
+      <td></td>
+      <td><%= number_to_currency(@cart.total_price) %></td>
+    </tr>
+</table>
+<%= link_to('Continue Shopping', :action => 'list') %>
+<br><br>
+<% form_for(:customer, :url => {:action => 'save_order'}) do |f| %>
+
+    First Name: <br>
+    <%= f.text_field(:first_name) %><br>
+    Last Name: <br>
+    <%= f.text_field(:last_name) %><br>
+    Street Address: <br>
+    <%= f.text_field(:street_address) %><br>
+    City: <br>
+    <%= f.text_field(:city) %><br>
+    Province: <br>
+    <%= f.text_field(:province) %><br>
+    Country: <br>
+    <%= f.text_field(:country) %><br>
+    Postal Code: <br>
+    <%= f.text_field(:postal_code) %><br>
+    Phone Number: <br>
+    <%= f.text_field(:phone_number) %><br>
+    Email:<br>
+    <%= f.text_field(:email) %><br>
+    Credit Card:<br>
+    <%= submit_tag("Place Order") %>
+
+<% end %>

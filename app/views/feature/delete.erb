@@ -1,0 +1,10 @@
+<% @page_title = 'Delete Feature' %>
+<h2><%= @page_title %></h2>
+<% form_for(:feature, :url => {:action => 'destroy', :id => @feature.id}) do |f| %>
+    <p>Are you sure you want to permanently delete the <%= @feature.feature %> feature?</p>
+    <table>
+        <tr><td><span class="title">Feature: </span></td><td><%= @feature.feature %></td></tr>
+    </table>
+    <%= submit_tag("Delete Feature") %> | <%= link_to('Back', {:action => 'list'}) %>
+
+<% end %>

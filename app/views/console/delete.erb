@@ -1,0 +1,11 @@
+<% @page_title = 'Delete Console' %>
+<h2>Delete Console</h2>
+<% form_for(:console, :url => {:action => 'destroy', :id => @console.id}) do |f| %>
+    <p>Are you sure you want to permanently delete the <%= @console.console %> console?</p>
+    <table>
+        <tr><td><span class="title">Console: </span></td><td><%= @console.console %></td></tr>
+        <tr><td><span class="title">Image: </span></td><td><%= @console.image_path %></td></tr>
+    </table>
+    <%= submit_tag("Delete Console") %> | <%= link_to('Back', {:action => 'list'}) %>
+
+<% end %>

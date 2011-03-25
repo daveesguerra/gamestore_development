@@ -1,0 +1,3 @@
+<% for game in @games -%>
+    <%= link_to(game.title, {:controller => 'Game', :action => 'show', :id => game.id}) %> (<%= game.console.console %>)<br />
+<% end %>

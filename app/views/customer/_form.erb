@@ -1,0 +1,30 @@
+<%= error_messages_for(@customer) %>
+<table>
+  <tr>
+    <td><span class="title">First Name: </span></td><td><%= f.text_field(:first_name) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Last Name: </span></td><td><%= f.text_field(:last_name) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Address: </span></td><td><%= f.text_field(:street_address) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">City: </span></td><td><%= f.text_field(:city) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Province: </span></td><td><%= f.text_field(:province) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Country: </span></td><td><%= f.text_field(:country) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Postal Code: </span></td><td><%= f.text_field(:postal_code) %></td>
+  </tr>
+   <tr>
+    <td><span class="title">Phone Number: </span></td><td><%= f.text_field(:phone_number) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Email: </span></td><td><%= f.text_field(:email) %></td>
+  </tr>
+</table>

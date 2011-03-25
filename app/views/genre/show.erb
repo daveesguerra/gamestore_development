@@ -1,0 +1,16 @@
+<% @page_title = 'Genre: ' + @genre.genre %>
+<table>
+  <tr>
+    <td><span class="title">Genre: </span></td><td><%= @genre.genre %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Created On:</span></td><td><%= @genre.created_at %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Modified On: </span></td><td><%= @genre.updated_at %></td>
+  </tr>
+</table>
+    <%= link_to('Edit', {:action => 'edit', :id => @genre.id}, {:class => 'back-button'}) %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>
+
+<p><%= @genre.genre %> Games</p>
+<%= games_list() %>

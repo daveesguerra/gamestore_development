@@ -1,0 +1,18 @@
+<% @page_title = 'Publisher: ' + @publisher.publisher %>
+<table>
+  <tr>
+    <td><span class="title">Publisher: </span></td><td><%= @publisher.publisher %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Image: </span></td><td><img src="<%= @publisher.image_path %>" alt="<%= @publisher.publisher %>" /><br />(<%= @publisher.image_path %>)</td>
+  </tr>
+  <tr>
+    <td><span class="title">Created On:</span></td><td><%= @publisher.created_at %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Modified On: </span></td><td><%= @publisher.updated_at %></td>
+  </tr>
+</table>
+    <%= link_to('Edit', {:action => 'edit', :id => @publisher.id}, {:class => 'back-button'}) %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>
+<p>Games by <%= @publisher.publisher %></p>
+<%= games_list() %>

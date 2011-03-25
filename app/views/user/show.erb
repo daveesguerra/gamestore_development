@@ -1,0 +1,19 @@
+<% @page_title = 'User: ' + @user.name %>
+<table>
+  <tr>
+    <td><span class="title">Name: </span></td><td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Email: </span></td><td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Password: </span></td><td><%= '*hidden*' if @user.hashed_password %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Created On:</span></td><td><%= @user.created_at %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Modified On: </span></td><td><%= @user.updated_at %></td>
+  </tr>
+</table>
+    <%= link_to('Edit', {:action => 'edit', :id => @user.id}, {:class => 'back-button'}) %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>

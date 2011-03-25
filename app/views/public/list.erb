@@ -1,0 +1,31 @@
+<% @page_title = 'Game List' %>
+<h2><%= @page_title %></h2>
+<div id="count"><%= pluralize(h(@games.size), 'game') %> found</div><br />
+<%= link_to('Show Shopping Cart', :action => 'show_cart') %>
+<table class="list">
+  <tr>
+    <th><!-- image --></th>
+    <th>Game</th>
+    <th>Console</th>
+    <th>Genre</th>
+    <th>Release Date</th>
+    <th>Price</th>
+    <th></th>
+  </tr>
+  <% for game in @games -%>
+    <tr>
+      <td><img src="<%= h(game.image_path) %>" alt="<%= h(game.title) %>" /></td>
+      <td><%= link_to(h(game.title), {:action => 'show', :id => h(game.id)}) %><br />
+        <span class="dev-pub"><strong>Developer:</strong> <%= h(game.developer.developer) %> <strong>Publisher:</strong> <%= h(game.publisher.publisher) %></span>
+      </td>
+      <td><%= h(game.console.console) %></td>
+      <td><%= h(game.genre.genre) %></td>
+      <td><%= h(game.release_date.strftime("%B %d, %Y")) %></td>
+      <td><%= number_to_currency(game.price) %></td>
+      <td><%= link_to('Add to Cart', :action => 'add_to_cart', :id => game.id) %></td>
+    </tr>
+  <% end -%>
+</table>
+
+
+

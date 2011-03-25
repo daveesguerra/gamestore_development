@@ -1,0 +1,6 @@
+<% @page_title = 'Edit Developer' %>
+<h2><%= @page_title %></h2>
+<% form_for(:developer, :url => {:action => 'update', :id => @developer.id}) do |f| %>
+    <%= render (:partial => 'form', :locals => {:f => f}) %>
+    <%= submit_tag("Update Developer") %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>
+<% end %>

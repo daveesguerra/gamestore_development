@@ -1,0 +1,25 @@
+<html>
+    <head>
+
+      <title>Dave's Game Store<% if @page_title %> | <%=  @page_title %><% end %></title>
+      <%= stylesheet_link_tag('public', :media => 'all') %>
+      <%= javascript_include_tag('jquery-1.5.1.js') %>
+    </head>
+    <body>
+        <div id="header">
+          <h1>Dave's Game Store</h1>
+          <div id="menu">
+
+          </div>
+        </div>
+        <% if !flash[:notice].blank? %>
+            <div class="notice"><%= flash[:notice] %></div>
+        <% end %>
+        <div id="content">
+        <%= yield %>
+        </div>
+        <div id="footer">
+          Dave's Game Store | 2011
+        </div>
+    </body>
+</html>

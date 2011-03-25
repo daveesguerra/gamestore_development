@@ -1,0 +1,11 @@
+<% if object && object.errors.size > 0 %>
+    <div id="errorExplanation">
+      <h3><%= pluralize(object.errors.size, "error") %> prohibited this record from being saved.</h3>
+      <p>There were problems with the following fields: </p>
+      <ul>
+        <% object.errors.each do |msg| %>
+         <li><%= msg.join(' ')  %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

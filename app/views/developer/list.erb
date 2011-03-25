@@ -1,0 +1,18 @@
+<% @page_title = 'Developer List' %>
+<h2><%= @page_title %></h2>
+<div id="count"><%= pluralize(@developers.size, 'developer') %> found</div> <%= link_to('Add Developer', {:action => 'new'},{:class => 'add-new'}) %><br />
+<table class="list">
+  <tr>
+    <th>Developer</th>
+    <th>Actions</th>
+  </tr>
+  <% for developer in @developers -%>
+    <tr>
+      <td><%= link_to(developer.developer, {:action => 'show', :id => developer.id}) %></td>
+      <td><%= link_to('Edit', {:action => 'edit', :id => developer.id}) %> | <%= link_to('Delete', {:action => 'delete', :id => developer.id}) %></td>
+    </tr>
+  <% end -%>
+</table>
+
+
+

@@ -1,0 +1,6 @@
+<% @page_title = 'Edit Order' %>
+<h2><%= @page_title %></h2>
+<% form_for(:order, :url => {:action => 'update', :id => @order.id}) do |f| %>
+    <%= render (:partial => 'form', :locals => {:f => f}) %>
+    <%= submit_tag("Update Order") %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>
+<% end %>

@@ -1,0 +1,35 @@
+<%= error_messages_for(@game) %>
+<table>
+  <tr>
+    <td><span class="title">Title: </span></td><td><%= f.text_field(:title) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Image: </span></td><td><%= f.text_field(:image_path) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Console: </span></td><td><%= select_tag('console_id', options_for_select(@consoles.collect {|con| [con.console, con.id]}, @game.console_id)) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Developer: </span></td><td><%= select_tag('developer_id', options_for_select(@developers.collect {|dev| [dev.developer, dev.id]}, @game.developer_id)) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Publisher: </span></td><td><%= select_tag('publisher_id', options_for_select(@publishers.collect {|pub| [pub.publisher, pub.id]}, @game.publisher_id)) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Genre List: </span></td><td><%= select_tag('genre_id', options_for_select(@genres.collect {|gen| [gen.genre, gen.id]}, @game.genre_id)) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Feature List: </span></td>
+    <td>
+        <% for feature in @features -%>
+            <%= check_box_tag('feature_list[]', feature.id, @game.features.collect {|obj| obj.id}.include?(feature.id)) %><%= feature.feature %><br />
+        <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td><span class="title">Release Date: </span></td><td><%= f.date_select(:release_date) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Price: </span></td><td><%= f.text_field(:price) %></td>
+  </tr>
+</table>

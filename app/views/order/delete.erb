@@ -1,0 +1,8 @@
+<% @page_title = 'Delete Order' %>
+<h2><%= @page_title %></h2>
+<% form_for(:order, :url => {:action => 'destroy', :id => @order.id}) do |f| %>
+    <p>Are you sure you want to permanently delete the <%= @order.invoice_number %> order?</p>
+
+    <%= submit_tag("Delete Order") %> | <%= link_to('Back', {:action => 'list'}) %>
+
+<% end %>

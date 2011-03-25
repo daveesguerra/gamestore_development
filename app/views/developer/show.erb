@@ -1,0 +1,19 @@
+<% @page_title = 'Developer: ' + @developer.developer %>
+<table>
+  <tr>
+    <td><span class="title">Developer: </span></td><td><%= @developer.developer %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Image: </span></td><td><img src="<%= @developer.image_path %>" alt="<%= @developer.developer %>" /><br />(<%= @developer.image_path %>)</td>
+  </tr>
+  <tr>
+    <td><span class="title">Created On:</span></td><td><%= @developer.created_at %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Modified On: </span></td><td><%= @developer.updated_at %></td>
+  </tr>
+</table>
+    <%= link_to('Edit', {:action => 'edit', :id => @developer.id}, {:class => 'back-button'}) %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>
+
+<p>Games by <%= @developer.developer %></p>
+<%= games_list() %>

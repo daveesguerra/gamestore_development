@@ -1,0 +1,41 @@
+<% @page_title = 'Game: ' + @game.title %>
+<table>
+  <tr>
+    <td><span class="title">Game: </span></td><td><%= @game.title %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Image: </span></td><td><img src="<%= @game.image_path %>" alt="<%= @game.title %>" /><br />(<%= @game.image_path %>)</td>
+  </tr>
+  <tr>
+    <td><span class="title">Console: </span></td><td><%= @game.console.console if @game.console %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Developer: </span></td><td><%= @game.developer.developer if @game.developer %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Publisher: </span></td><td><%= @game.publisher.publisher if @game.publisher %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Genre: </span></td><td><%= @game.genre.genre if @game.genre %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Features: </span></td>
+    <td><% for feature in @game.features -%>
+          <%= feature.feature %><br />
+        <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td><span class="title">Release Date: </span></td><td><%= @game.release_date %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Price: </span></td><td><%= number_to_currency(@game.price) %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Created On:</span></td><td><%= @game.created_at %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Modified On: </span></td><td><%= @game.updated_at %></td>
+  </tr>
+</table>
+    <%= link_to('Edit', {:action => 'edit', :id => @game.id}, {:class => 'back-button'}) %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>

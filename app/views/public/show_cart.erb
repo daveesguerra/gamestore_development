@@ -1,0 +1,31 @@
+<% @page_title = 'Shopping Cart' %>
+<h2><%= @page_title %></h2>
+<table class="list">
+    <tr>
+      <th></th>
+      <th>Game</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+<% for item in @cart.items -%>
+    <tr>
+      <td><%= image_tag(item.game.image_path) %></td>
+      <td><%= h(item.game.title) %></td>
+      <td><%= h(item.quantity) %></td>
+      <td><%= number_to_currency(item.price) %></td>
+      <td><%= link_to('Remove', :action => 'remove_from_cart', :id => item.game.id) %></td>
+    </tr>
+<% end -%>
+    <tr>
+      <td>Total: </td>
+      <td></td>
+      <td></td>
+      <td><%= number_to_currency(@cart.total_price) %></td>
+    </tr>
+</table>
+<br>
+
+<%= link_to('Continue Shopping', :action => 'list') %>
+<%= link_to('Checkout', :action => 'checkout') %>
+<%= link_to('EmptyCart', :action => 'empty_cart', :confirm => 'Are you sure?') %>

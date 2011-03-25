@@ -1,0 +1,10 @@
+<% @page_title = 'Delete Genre' %>
+<h2><%= @page_title %></h2>
+<% form_for(:genre, :url => {:action => 'destroy', :id => @genre.id}) do |f| %>
+    <p>Are you sure you want to permanently delete the <%= @genre.genre %> genre?</p>
+    <table>
+        <tr><td><span class="title">Genre: </span></td><td><%= @genre.genre %></td></tr>
+    </table>
+    <%= submit_tag("Delete Genre") %> | <%= link_to('Back', {:action => 'list'}) %>
+
+<% end %>

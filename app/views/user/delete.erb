@@ -1,0 +1,11 @@
+<% @page_title = 'Delete User' %>
+<h2><%= @page_title %></h2>
+<% form_for(:user, :url => {:action => 'destroy', :id => @user.id}) do |f| %>
+    <p>Are you sure you want to permanently delete the <%= @user.name %>?</p>
+    <table>
+        <tr><td><span class="title">User: </span></td><td><%= @user.name %></td></tr>
+        <tr><td><span class="title">Email: </span></td><td><%= @user.email %></td></tr>
+    </table>
+    <%= submit_tag("Delete User") %> | <%= link_to('Back', {:action => 'list'}) %>
+
+<% end %>

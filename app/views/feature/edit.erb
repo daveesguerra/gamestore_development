@@ -1,0 +1,6 @@
+<% @page_title = 'Edit Feature' %>
+<h2><%= @page_title %></h2>
+<% form_for(:feature, :url => {:action => 'update', :id => @feature.id}) do |f| %>
+    <%= render (:partial => 'form', :locals => {:f => f}) %>
+    <%= submit_tag("Update Feature") %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>
+<% end %>

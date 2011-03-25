@@ -1,0 +1,34 @@
+<% @page_title = 'Customer: ' + @customer.first_name+' '+@customer.last_name %>
+<table>
+  <tr>
+    <td><span class="title">Name: </span></td><td><%= @customer.first_name %> <%= @customer.last_name %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Address: </span></td><td><%= @customer.street_address %></td>
+  </tr>
+  <tr>
+    <td><span class="title">City: </span></td><td><%= @customer.city %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Province: </span></td><td><%= @customer.province %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Country: </span></td><td><%= @customer.country %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Postal Code: </span></td><td><%= @customer.postal_code %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Phone Number: </span></td><td><%= @customer.phone_number %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Email: </span></td><td><%= @customer.email %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Created On:</span></td><td><%= @customer.created_at %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Modified On: </span></td><td><%= @customer.updated_at %></td>
+  </tr>
+</table>
+    <%= link_to('Edit', {:action => 'edit', :id => @customer.id}, {:class => 'back-button'}) %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>

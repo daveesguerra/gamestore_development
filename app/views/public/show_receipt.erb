@@ -1,0 +1,39 @@
+<% @page_title = 'Receipt' %>
+<h2><%= @page_title %></h2>
+
+Date: <%= @order.created_at.strftime("%B %d, %Y at %I:%M %p %Z") %><br>
+<br>
+<%= @order.customer.first_name %> <%= @order.customer.last_name %><br>
+<%= @order.customer.street_address %><br>
+<%= @order.customer.city %>, <%= @order.customer.province %><br>
+<%= @order.customer.country %> <%= @order.customer.postal_code %><br>
+<%= @order.customer.phone_number %><br>
+<br>
+Has successfully purchased:
+<% total_price = 0.0 -%>
+<table class="list">
+  <tr>
+    <th>Game</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Subtotal</th>
+  </tr>
+    <% for item in @order.line_items -%>
+        <% total_price += item.price*item.quantity -%>
+        <tr>
+          <td><strong><%= item.game.title %></strong></td>
+          <td><%= item.quantity %></td>
+          <td><%= number_to_currency(item.price) %></td>
+          <td><%= number_to_currency(item.price*item.quantity) %></td>
+
+        </tr>
+    <% end %>
+    <tr>
+      <td>Total:</td>
+      <td></td>
+      <td></td>
+      <td><%= number_to_currency(total_price) %></td>
+    </tr>
+</table>
+<br>
+<%= link_to('Browse More Games', :action => 'list') %>

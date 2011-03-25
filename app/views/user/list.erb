@@ -1,0 +1,18 @@
+<% @page_title = 'User List' %>
+<h2><%= @page_title %></h2>
+<div id="count"><%= pluralize(@users.size, 'user') %> found</div> <%= link_to('Add User', {:action => 'new'},{:class => 'add-new'}) %><br />
+<table class="list">
+  <tr>
+    <th>User</th>
+    <th>Actions</th>
+  </tr>
+  <% for user in @users -%>
+    <tr>
+      <td><%= link_to(user.name, {:action => 'show', :id => user.id}) %></td>
+      <td><%= link_to('Edit', {:action => 'edit', :id => user.id}) %> | <%= link_to('Delete', {:action => 'delete', :id => user.id}) %></td>
+    </tr>
+  <% end -%>
+</table>
+
+
+

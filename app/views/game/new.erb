@@ -1,0 +1,7 @@
+<% @page_title = 'Add Game' %>
+<h2><%= @page_title %></h2>
+<% form_for(:game, :url => {:action => 'create'}) do |f| %>
+    <%= render (:partial => 'form', :locals => {:f => f}) %>
+    <%= submit_tag("Add Game") %> | <%= link_to('Back', {:action => 'list'}, {:class => 'back-button'}) %>
+
+<% end %>

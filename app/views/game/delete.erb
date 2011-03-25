@@ -1,0 +1,29 @@
+<% @page_title = 'Delete Game' %>
+<h2><%= @page_title %></h2>
+<% form_for(:game, :url => {:action => 'destroy', :id => @game.id}) do |f| %>
+    <p>Are you sure you want to permanently delete the <%= @game.title %> game?</p>
+    <table>
+        <tr><td><span class="title">Game: </span></td><td><%= @game.title %></td></tr>
+        <tr><td><span class="title">Image: </span></td><td><%= @game.image_path %></td></tr>
+  <tr>
+    <td><span class="title">Console: </span></td><td><%= @game.console.console %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Developer: </span></td><td><%= @game.developer.developer %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Publisher: </span></td><td><%= @game.publisher.publisher %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Genre: </span></td><td><%= @game.genre.genre %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Release Date: </span></td><td><%= @game.release_date %></td>
+  </tr>
+  <tr>
+    <td><span class="title">Price: </span></td><td><%= number_to_currency(@game.price) %></td>
+  </tr>
+    </table>
+    <%= submit_tag("Delete Game") %> | <%= link_to('Back', {:action => 'list'}) %>
+
+<% end %>
